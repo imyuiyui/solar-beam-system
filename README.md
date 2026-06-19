@@ -29,7 +29,9 @@ Một ứng dụng mô phỏng Hệ Mặt Trời theo thời gian thực đượ
 
 ## 🚀 Hướng dẫn cài đặt (Installation)
 Trước hết, hãy tải các file code và file texture theo link này: https://drive.google.com/drive/folders/1jUJ9GQRzTGnJiukw5PEs2ViQ6II99JQX?usp=sharing
+
 Cầu trúc file chạy nên như thế này: 
+
 ├── index.html       
 ├── main.js         
 ├── textures/       
@@ -39,6 +41,7 @@ Cầu trúc file chạy nên như thế này:
 │   ├── moon.jpg
 │   └── ... (ảnh các hành tinh khác)
 └── README.md
+
 Mở lên bằng VS Code rồi làm theo các bước dưới:
 1. Cài đặt tiện ích mở rộng [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) trong VS Code.
 2. Mở thư mục dự án bằng VS Code.
