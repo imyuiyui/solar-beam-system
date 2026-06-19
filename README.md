@@ -35,12 +35,12 @@ Cầu trúc file chạy nên như thế này:
 ├── index.html       
 ├── main.js         
 ├── textures/       
-│   ├── sun.jpg
-│   ├── earth.jpg
-│   ├── earth_clouds.jpg
-│   ├── moon.jpg
-│   └── ... (ảnh các hành tinh khác)
-└── README.md
+   │   ├── sun.jpg
+   │   ├── earth.jpg
+   │   ├── earth_clouds.jpg
+   │   ├── moon.jpg
+   │   └── ... (ảnh các hành tinh khác)
+      └── README.md
 
 Mở lên bằng VS Code rồi làm theo các bước dưới:
 1. Cài đặt tiện ích mở rộng [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) trong VS Code.
