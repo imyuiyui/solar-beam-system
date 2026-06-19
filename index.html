@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; font-family: sans-serif; color: white; user-select: none; }
+        #info { position: absolute; top: 20px; left: 20px; pointer-events: none; text-shadow: 0 0 5px #000; z-index: 10; }
+        h1 { margin: 0 0 5px 0; font-size: 24px; letter-spacing: 2px; }
+        p { margin: 0; font-size: 14px; opacity: 0.8; }
+        #tooltip { position: absolute; padding: 8px 15px; background: rgba(10, 20, 30, 0.85); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 6px; font-weight: bold; display: none; pointer-events: none; transform: translate(15px, 15px); z-index: 10; }
+        
+        #left-menu { position: absolute; top: 110px; left: 20px; background: rgba(10, 20, 30, 0.85); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; padding: 15px; display: flex; flex-direction: column; gap: 18px; z-index: 10; width: 220px; }
+        #left-menu h3 { margin: 0; font-size: 16px; color: #ffcc00; text-transform: uppercase; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 8px; }
+        .menu-item { display: flex; flex-direction: column; gap: 8px; }
+        .menu-item label { font-size: 13px; font-weight: bold; cursor: pointer; }
+        .menu-item input[type=range] { width: 100%; cursor: pointer; }
+        .checkbox-wrapper { display: flex; align-items: center; gap: 10px; flex-direction: row; }
+        .checkbox-wrapper input[type=checkbox] { cursor: pointer; width: 18px; height: 18px; margin: 0; }
+        #reset-btn { width: 100%; padding: 10px; background: rgba(255, 100, 100, 0.2); border: 1px solid rgba(255, 100, 100, 0.5); color: white; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s; margin-top: 5px; }
+        #reset-btn:hover { background: rgba(255, 100, 100, 0.4); }
+
+        #side-panel { position: absolute; top: 20px; right: 20px; width: 300px; background: rgba(10, 20, 30, 0.85); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; padding: 20px; display: none; flex-direction: column; gap: 15px; z-index: 10; }
+        #side-panel h2 { margin: 0; font-size: 22px; color: #ffcc00; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 10px; }
+        #side-panel p { margin: 0; font-size: 15px; line-height: 1.5; }
+        #close-panel { padding: 10px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); color: white; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.2s; }
+        #close-panel:hover { background: rgba(255, 255, 255, 0.3); }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">
+        <h1>3D SOLAR SYSTEM</h1>
+        <p>WASD / Arrows to Move</p>
+        <p>Click a planet to follow</p>
+    </div>
+    
+    <div id="left-menu">
+        <h3>Control Panel</h3>
+        <div class="menu-item">
+            <label for="speedSlider">Time Speed</label>
+            <input type="range" id="speedSlider" min="0" max="2" step="0.01" value="0.2">
+        </div>
+        <div class="menu-item">
+            <label for="brightnessSlider">Sun Brightness</label>
+            <input type="range" id="brightnessSlider" min="0" max="3" step="0.05" value="1">
+        </div>
+        <div class="menu-item checkbox-wrapper">
+            <input type="checkbox" id="shaderToggle" checked>
+            <label for="shaderToggle">Enable Shadows / Shaders</label>
+        </div>
+        <div class="menu-item checkbox-wrapper">
+            <input type="checkbox" id="orbitToggle" checked>
+            <label for="orbitToggle">Show Orbits</label>
+        </div>
+        <button id="reset-btn">Reset to Default</button>
+    </div>
+
+    <div id="side-panel">
+        <h2 id="panel-title"></h2>
+        <p id="panel-desc"></p>
+        <button id="close-panel">Unfollow</button>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
